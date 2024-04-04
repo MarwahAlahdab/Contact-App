@@ -1,0 +1,46 @@
+﻿@page "/add-contact"
+@inject Services.ContactService contactService
+@using System.ComponentModel.DataAnnotations
+
+<h3>Add New Contact</h3>
+
+<EditForm Model="@newContact" OnValidSubmit="Add">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <InputText id="firstName" class="form-control" @bind-Value="newContact.FirstName" />
+        <ValidationMessage For="@(() => newContact.FirstName)" />
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <InputText id="lastName" class="form-control" @bind-Value="newContact.LastName" />
+        <ValidationMessage For="@(() => newContact.LastName)" />
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <InputText id="email" class="form-control" @bind-Value="newContact.Email" />
+        <ValidationMessage For="@(() => newContact.Email)" />
+    </div>
+
+    <div class="form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <InputText id="phoneNumber" class="form-control" @bind-Value="newContact.PhoneNumber" />
+        <ValidationMessage For="@(() => newContact.PhoneNumber)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Contact</button>
+</EditForm>
+
+@code {
+    private Models.Contact newContact = new Models.Contact();
+
+    private void Add()
+    {
+        contactService.AddContact(newContact);
+        newContact = new Models.Contact(); // to clear 
+    }
+}

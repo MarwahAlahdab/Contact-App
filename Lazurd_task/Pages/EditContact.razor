@@ -1,0 +1,61 @@
+﻿@page "/edit-contact/{contactId}"
+@inject Services.ContactService contactService
+
+<h3>Edit Contact</h3>
+
+@if (contact != null)
+{
+    <EditForm Model="@contact" OnValidSubmit="UpdateContact">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <InputText id="firstName" class="form-control" @bind-Value="contact.FirstName" />
+            <ValidationMessage For="@(() => contact.FirstName)" />
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <InputText id="lastName" class="form-control" @bind-Value="contact.LastName" />
+            <ValidationMessage For="@(() => contact.LastName)" />
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <InputText id="email" class="form-control" @bind-Value="contact.Email" />
+            <ValidationMessage For="@(() => contact.Email)" />
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <InputText id="phoneNumber" class="form-control" @bind-Value="contact.PhoneNumber" />
+            <ValidationMessage For="@(() => contact.PhoneNumber)" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Contact</button>
+    </EditForm>
+}
+else
+{
+    <p>Contact not found.</p>
+}
+
+@code {
+    private Models.Contact contact;
+
+    [Inject] private NavigationManager navigationManager { get; set; }
+    [Parameter] public string ContactId { get; set; }
+
+    protected override void OnInitialized()
+    {
+        int.TryParse(ContactId, out int id);
+        contact = contactService.GetContactById(id);
+    }
+
+    private void UpdateContact()
+    {
+        contactService.UpdateContact(contact);
+        navigationManager.NavigateTo("/");
+    }
+}

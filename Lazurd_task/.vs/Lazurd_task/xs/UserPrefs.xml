@@ -1,0 +1,45 @@
+﻿<Properties StartupConfiguration="{CB0EDA3D-EC48-4027-80A3-403CF746E196}|Default">
+  <MonoDevelop.Ide.ItemProperties.Lazurd__task PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/AddContact.razor">
+    <Files>
+      <File FileName="Models/Contact.cs" Line="11" Column="6" />
+      <File FileName="Services/ContactService.cs" Line="44" Column="16" />
+      <File FileName="Pages/AddContact.razor" Line="58" Column="1" />
+      <File FileName="Pages/Index.razor" Line="16" Column="6" />
+      <File FileName="Pages/ContactDetails.razor" Line="29" Column="16" />
+      <File FileName="Pages/EditContact.razor" Line="22" Column="15" />
+      <File FileName="App.razor" Line="1" Column="1" />
+      <File FileName="_Imports.razor" Line="1" Column="1" />
+      <File FileName="Client/Program.cs" Line="9" Column="2" />
+      <File FileName="Pages/DeleteConfirmation.razor" Line="22" Column="16" />
+      <File FileName="wwwroot/manifest.json" Line="3" Column="25" />
+      <File FileName="wwwroot/service-worker.js" Line="1" Column="1" />
+      <File FileName="wwwroot/service-worker.published.js" Line="19" Column="24" />
+      <File FileName="Shared/MainLayout.razor" Line="1" Column="1" />
+      <File FileName="Shared/NavMenu.razor" Line="20" Column="40" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Lazurd_task" expanded="True">
+            <Node name="Lazurd_task" expanded="True">
+              <Node name="Client" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Pages" expanded="True">
+                <Node name="AddContact.razor" selected="True" />
+              </Node>
+              <Node name="Services" expanded="True" />
+              <Node name="Shared" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

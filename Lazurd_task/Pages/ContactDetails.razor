@@ -1,0 +1,47 @@
+﻿@page "/contact-details/{Id}"
+@inject Services.ContactService contactService
+
+<h3>Contact Details</h3>
+
+@if (contact != null)
+{
+    <dl class="row">
+        <dt class="col-sm-2">First Name:</dt>
+        <dd class="col-sm-10">@contact.FirstName</dd>
+
+        <dt class="col-sm-2">Last Name:</dt>
+        <dd class="col-sm-10">@contact.LastName</dd>
+
+        <dt class="col-sm-2">Email:</dt>
+        <dd class="col-sm-10">@contact.Email</dd>
+
+        <dt class="col-sm-2">Phone Number:</dt>
+        <dd class="col-sm-10">@contact.PhoneNumber</dd>
+    </dl>
+}
+else
+{
+    <p>Contact not found.</p>
+}
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    private Models.Contact contact;
+
+    [Inject] private NavigationManager navigationManager { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (int.TryParse(Id, out int contactId))
+        {
+            contact = contactService.GetContactById(contactId);
+        }
+        else
+        {
+            navigationManager.NavigateTo("/");
+
+        }
+    }
+}
